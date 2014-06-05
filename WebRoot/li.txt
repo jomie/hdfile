@@ -1,0 +1,1 @@
+[{"id":"/","text":"/","state":"closed"},{"id":"/a","text":"Node 2","state":"open"},{"id":"/b","text":"Node 3","state":"open"},{"id":"/c","text":"Node 4","state":"open"}]

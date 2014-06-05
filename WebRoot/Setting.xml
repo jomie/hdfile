@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<basePath>http://10.21.32.126:50070/webhdfs/v1/allprivl/</basePath>
+	<baseBXXPath>http://10.21.32.126:50070/webhdfs/v1/safebox/</baseBXXPath>
+	<baseTrashPath>http://10.21.32.126:50070/webhdfs/v1/trash/</baseTrashPath>
+	<baseDirectory></baseDirectory>
+	<admin-pwd>123321</admin-pwd>
+</configuration>
+

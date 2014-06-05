@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-body>
+
+
+
+	<package name="file-service" extends="struts-default">
+		<interceptors>
+			<!-- 包含权限控制的拦截器 -->
+			<interceptor name="authority"
+				class="org.niko.utils.UserAuthorityInterceptor" />
+			<!-- 包含权限控制的拦截器栈 -->
+			<interceptor-stack name="mydefault">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="authority" />
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- 定义默认拦截器栈 -->
+		<default-interceptor-ref name="mydefault" />
+		<!-- 定义全局处理结果 -->
+		<global-results>
+			<result name="login">login.jsp</result>
+			<result name="error">global-error.jsp</result>
+		</global-results>
+	
+		<action name="download" class="org.niko.actions.DownloadAction" method="execute">
+			<result name="success" type="stream">
+				<param name="inputName">inputStream</param>
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${downname}"</param>
+				<param name="bufferSize">8192</param>
+			</result>
+		</action>
+		<action name="filelist" class="org.niko.actions.FileListAction" method="execute">
+			<result name="success">filelist.jsp</result>
+		</action>
+		
+		<action name="toupload" class="org.niko.actions.UploadAction" method="toUpload">
+			<result name="success">upload.jsp</result>
+		</action>
+		
+		<action name="upload" class="org.niko.actions.UploadAction" method="execute">
+			<result name="success">upload-success.jsp</result>
+		</action>
+		
+		<action name="tomkdir" class="org.niko.actions.MkdirAction" method="toMkdir">
+			<result name="success">mkdir.jsp</result>
+		</action>
+		
+		<action name="mkdir" class="org.niko.actions.MkdirAction" method="execute">
+			<result name="success">mkdir-success.jsp</result>
+		</action>
+		
+		<action name="torename" class="org.niko.actions.RenameAction" method="toRename">
+			<result name="success">rename.jsp</result>
+		</action>
+		
+		<action name="rename" class="org.niko.actions.RenameAction" method="execute">
+			<result name="success">rename-success.jsp</result>
+		</action>
+		
+		<action name="delete" class="org.niko.actions.DeleteAction" method="execute">
+			<result name="success">delete-success.jsp</result>
+		</action>
+		
+		
+		
+		<action name="userlist" class="org.niko.actions.AdminUserAction" method="listUser">
+			<result name="success">userlist.jsp</result>
+		</action>
+		
+ 		<action name="deluser" class="org.niko.actions.AdminUserAction" method="delUser">
+			<result name="success" type="redirectAction">userlist</result>
+		</action>
+		
+		<action name="resetuser" class="org.niko.actions.AdminUserAction" method="resetUser">
+			<result name="success" type="plainText">
+				<param name="charSet">UTF-8</param>
+				<param name="location">/userlist.jsp</param>
+			</result>
+		</action>
+		
+		
+		
+		<action name="logout" class="org.niko.actions.HDLoginAction" method="logout">
+			<result name="success">login.jsp</result>
+		</action>
+		
+		<action name="tomove" class="org.niko.actions.MoveAction" method="tomove">
+			<result name="success">move.jsp</result>
+		</action>
+		
+		<action name="move" class="org.niko.actions.MoveAction" method="move">
+			<result name="success">move-success.jsp</result>
+		</action>
+		
+		
+	</package>	
+</xml-body>

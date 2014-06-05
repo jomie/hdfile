@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--EDITME-->
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+    		<layout class="org.apache.log4j.PatternLayout">
+           	<param name="ConversionPattern" value="&lt;%d&gt; &lt;%c{1}:%p&gt; %m\n"/>
+	    	</layout>
+	</appender>
+	
+	<appender name="HDFile" class="org.apache.log4j.DailyRollingFileAppender">
+            <param name="File"   value="d:\\HDFile.log" />
+            <param name="Append" value="true" />
+            <param name="MaxFileSize" value="3MB"/>
+            <param name="MaxBackupIndex" value="10"/>
+			<param name="threshold" value="debug"/>
+            <layout class="org.apache.log4j.PatternLayout">
+                <!--<param name="ConversionPattern" value="%d\t&lt;%c{1}:%p&gt;\t%m - %l%n"/>-->
+                  <param name="ConversionPattern" value="-5-%d{YYYY-MM-DD HH:mm:ss.SSS}{GMT} \t&lt;%c{1}:%p&gt;\t%m - %l%n"/>
+            </layout>
+	</appender>
+
+	
+    <root>
+       	<priority value="INFO"/>
+       	<appender-ref ref="STDOUT"/>
+       	<appender-ref ref="HDFile"/>
+   </root>
+
+</log4j:configuration>

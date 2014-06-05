@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="HDFile"
+  id="myeclipse.1388923811875"
+  context-root="/HDFile"
+  j2ee-spec="6.0"
+  archive="HDFile.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
